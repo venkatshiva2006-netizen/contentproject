@@ -19,6 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', lambda request: redirect('add_content')),
     path('', include('contentapp.urls')),
 ]
 
