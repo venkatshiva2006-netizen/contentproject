@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Content</title>
+</head>
+<body>
+    <h1>All Submitted Content</h1>
+
+    <div id="content-list"></div>
+
+    <script>
+        // Fetch the data from our API
+        fetch("/api/content/")
+            .then(response => response.json())
+            .then(data => {
+                let contentDiv = document.getElementById("content-list");
+
+                data.forEach(item => {
+                    contentDiv.innerHTML += `
+                        <h3>${item.title}</h3>
+                        <p>${item.body}</p>
+                        <hr>
+                    `;
+                });
+            });
+    </script>
+</body>
+</html>
